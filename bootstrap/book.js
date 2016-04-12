@@ -1,6 +1,5 @@
 var main = function () {
 	$('.btn-updateBook').click(function(event) {
-	$('.sql').toggle()
 	$.getJSON('book.json',function(jd) {
 	$('.buyBook').text(jd.Buy);
 	$('.sellBook').text(jd.Sell);
