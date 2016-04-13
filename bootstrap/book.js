@@ -6,6 +6,7 @@ var main = function () {
 });
 });
 };
+
 var err = function () {
     $.getJSON("book.json", function(d) {
         alert("success");
@@ -13,4 +14,15 @@ var err = function () {
         console.error("getJSON failed, status: " + textStatus + ", error: "+error)
     });
 }
-$(document).ready(main);
+var autoreload = function () {
+	$.getJSON('book.json',function(jd) {
+	$('.buyBook').text(jd.Buy);
+	$('.sellBook').text(jd.Sell);
+});
+};
+var main2 = function () {
+	$.ajaxSetup({cache: false});
+	setInterval(function(){autoreload()},1000);
+};
+//$(document).ready(setInterval(function(){autoreload()},1000));
+$(document).ready(main2);
