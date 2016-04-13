@@ -1,11 +1,3 @@
-var main = function () {
-	$('.btn-updateBook').click(function(event) {
-	$.getJSON('book.json',function(jd) {
-	$('.buyBook').text(jd.Buy);
-	$('.sellBook').text(jd.Sell);
-});
-});
-};
 
 var err = function () {
     $.getJSON("book.json", function(d) {
@@ -16,13 +8,17 @@ var err = function () {
 }
 var autoreload = function () {
 	$.getJSON('book.json',function(jd) {
-	$('.buyBook').text(jd.Buy);
-	$('.sellBook').text(jd.Sell);
+	$('.buylevel1').text(jd.Buy_1);
+	$('.selllevel1').text(jd.Sell_1);
+	$('.buylevel2').text(jd.Buy_2);
+	$('.selllevel2').text(jd.Sell_2);
+	$('.buylevel3').text(jd.Buy_3);
+	$('.selllevel3').text(jd.Sell_3);
 });
 };
-var main2 = function () {
+var main = function () {
 	$.ajaxSetup({cache: false});
 	setInterval(function(){autoreload()},1000);
 };
 //$(document).ready(setInterval(function(){autoreload()},1000));
-$(document).ready(main2);
+$(document).ready(main);
