@@ -15,7 +15,9 @@ var autoreload = function () {
 	$('.buylevel3').text(jd.Buy_3);
 	$('.selllevel3').text(jd.Sell_3);
 });
-	$('trades tr:last').after('<tr><td>New data</td></tr>');
+	$('.level').click(function () {
+	var price = $('.level').val();
+	$('.btn-price').text($price);
 };
 var main = function () {
 	$.ajaxSetup({cache: false});
