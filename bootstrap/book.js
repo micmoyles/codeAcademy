@@ -15,13 +15,15 @@ var autoreload = function () {
 	$('.buylevel3').text(jd.Buy_3);
 	$('.selllevel3').text(jd.Sell_3);
 });
-	$('.level').click(function () {
-	var price = $('.level').val();
-	$('.btn-price').text($price);
-};
+}
 var main = function () {
 	$.ajaxSetup({cache: false});
-	setInterval(function(){autoreload()},1000);
+//	setInterval(function(){autoreload()},1000);
+
+	$('.level').click(function (event) {
+		var price = $(this).text();
+		$('.btn-price').text(price);
+		$('.form-price').val(price);
+	});
 };
-//$(document).ready(setInterval(function(){autoreload()},1000));
 $(document).ready(main);

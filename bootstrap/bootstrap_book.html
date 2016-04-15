@@ -20,9 +20,28 @@
   <body>
 <div class="container" style='font-size:14px' >
 | <a href=trades.py > Trades </a>| <a href=position.py> Position </a>| <a href=loader.py> Loader </a>| <a href=messages.py> Messages </a>| <a href=stats.py> Hanger Stats </a>| 
+<br>
 </div>
+<div class='row container'>
+<div class='col-md-8'>
 <h2 class='container'>BookViewer</h2>
-
+</div>
+<div class='col-md-2'>
+<form method='GET'>
+<select class="form-control">
+  <option>ESM5</option>
+  <option>ESM5-ESU5</option>
+  <option>ESM5-ESZ5</option>
+  <option>ESU5</option>
+  <option>ESZ5</option>
+</select>
+</div>
+<div class='col-md-2'>
+<button type="submit" class="btn btn-default">Submit</button>
+</div>
+</form>
+</div>
+</div>
 <div class='container row'>
 <div class='col-md-8'>
 <table class='table table-bordered table-striped'>
@@ -31,13 +50,13 @@
 <td align='right'><b>Buy</b></td><td><b>Sell</b></td>
 </tr>
 <tr>
-<td class='buylevel1' align='right'>149</td><td class='selllevel1'>150</td>
+<td class='level buylevel1' align='right'>149</td><td class='selllevel1 level'>150</td>
 </tr>
 <tr>
-<td class='buylevel2' align='right'>148</td><td class='selllevel2'>151</td>
+<td class='level buylevel2' align='right'>148</td><td class='selllevel2 level'>151</td>
 </tr>
 <tr>
-<td class='buylevel3' align='right'>147</td><td class='selllevel3'>152</td>
+<td class='level buylevel3' align='right'>147</td><td class='selllevel3 level'>152</td>
 </tr>
 </tbody>
 </table>
@@ -71,7 +90,7 @@
         </td>
         <td>
         <label for="exampleInputName2">Price</label>
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="123.45">
+        <input type="text" class="form-control form-price" id="exampleInputName2" placeholder="123.45">
         </td>
         <td>
         <label for="exampleInputName2">Size</label>
@@ -86,7 +105,9 @@
     </tbody>
 </table>
 </div>
-
+<div class="btn btn-info">
+<a href='#' class="btn-price">VOD</a>
+</div>
 </div>
     <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
