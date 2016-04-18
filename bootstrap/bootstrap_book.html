@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title> Trades </title>
+    <title> Live Book </title>
 
     <!-- Bootstrap -->
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -47,16 +47,16 @@
 <table class='table table-bordered table-striped'>
 <tbody>
 <tr>
-<td align='right'><b>Buy</b></td><td><b>Sell</b></td>
+<td class='buy_header' align='right'><b>Buy</b></td><td class='sell_header'><b>Sell</b></td>
 </tr>
 <tr>
-<td class='level buylevel1' align='right'>149</td><td class='selllevel1 level'>150</td>
+<td class='level buy buylevel1' align='right'>149</td><td class='selllevel1 sell level'>150</td>
 </tr>
 <tr>
-<td class='level buylevel2' align='right'>148</td><td class='selllevel2 level'>151</td>
+<td class='level buy buylevel2' align='right'>148</td><td class='selllevel2 sell level'>151</td>
 </tr>
 <tr>
-<td class='level buylevel3' align='right'>147</td><td class='selllevel3 level'>152</td>
+<td class='level buy buylevel3' align='right'>147</td><td class='selllevel3 sell level'>152</td>
 </tr>
 </tbody>
 </table>
@@ -75,39 +75,40 @@
 </div>
 </div>
 <div class='container row'>
-<form class="form-inline container" method = "get" >
+<form class="form-inline container col-md-8" method = "get" >
 <div class="form-group">
 <table class="table table-bordered">
     <tbody>
         <tr>
         <td>
         <label for="exampleInputName2">Symbol</label>
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="ECM5/ESM5">
+        <input type="text" class="form-control form-symbol" id="exampleInputName2">
         </td>
         <td>
         <label for="exampleInputName2">Trade Side</label>
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="B/S/T">
+        <input type="text" class="form-control form-side" id="exampleInputName2">
         </td>
         <td>
         <label for="exampleInputName2">Price</label>
-        <input type="text" class="form-control form-price" id="exampleInputName2" placeholder="123.45">
+        <input type="text" class="form-control form-price" id="exampleInputName2">
         </td>
         <td>
         <label for="exampleInputName2">Size</label>
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="100">
+        <input type="text" class="form-control" id="exampleInputName2">
         </td>
         <tr>
         <td>
         <label for="exampleInputName2">Venue</label>
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="APX/CME">
+        <input type="text" class="form-control" id="exampleInputName2">
         </td>
         </tr>
     </tbody>
 </table>
 </div>
 <div class="btn btn-info">
-<a href='#' class="btn-price">VOD</a>
+<a class="btn btn-price">Trade</a>
 </div>
+</form>
 </div>
     <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

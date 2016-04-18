@@ -22,8 +22,23 @@ var main = function () {
 
 	$('.level').click(function (event) {
 		var price = $(this).text();
-		$('.btn-price').text(price);
 		$('.form-price').val(price);
 	});
+	$('.buy').click(function (event) {
+		$('.form-side').val('B');
+	});
+	$('.sell').click(function (event) {
+		$('.form-side').val('S');
+	});
+	$('.buy_header').click(function(event) {
+		var price = $('.buyLevel1').text();
+		$('.form-side').val('S');	
+		$('.form-price').val(price);
+	});
+	$('.sell_header').click(function(event) {
+		var price = $('.sellLevel1').text();
+		$('.form-side').val('B');	
+		$('.form-price').val(price);
+});
 };
 $(document).ready(main);
