@@ -18,7 +18,7 @@ var autoreload = function () {
 }
 var main = function () {
 	$.ajaxSetup({cache: false});
-//	setInterval(function(){autoreload()},1000);
+	setInterval(function(){autoreload()},1000);
 
 	$('.level').click(function (event) {
 		var price = $(this).text();
