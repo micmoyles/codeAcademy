@@ -1,29 +1,47 @@
 #!/usr/bin/python
 
 def nonDivisibleSubset(k, S):
-    pass
+    retVal = []
+    # getall subsets
+    subSets = getSubSets(S)
+    assert len(subSets) == 2**len(S) - 2, 'Unexpected number of subsets returned'
+
+    # for each subset, add all combinations of two elements
+    # if any two are evenly divisble by k then that subset fails
+    print subSets
+    for subSet in subSets:
+        if len(subSet) == 1:
+            print 'Removing'
+            print subSet
+            subSets.remove(subSet)
+        else:
+            print subSet
+            print '--------------'
+            if checkPermutations(k,subSet):
+                retVal.append(subSet)
+    return retVal
 
 
-def getPermutations(k, S):
+def checkPermutations(k, S):
     '''
     :param k: integer
     :param S: array
-    :return: array of combinations s1,s2 where s1+s2 % k == 0
+    :return: True if no two elements sum with % k == 0
     '''
-    retVal= []
+    check = True
+    S = list(S)
     for i in xrange(len(S)):
-        for j in xrange(i+1,len(S)):
+        for j in xrange(len(S)):
+            if j == i: continue
             print str(S[i]) + ' + ' + str(S[j])
             if (S[i] + S[j]) % k == 0:
-                retVal.append([S[i],S[j]])
-    print retVal
+                return False
+
+    return True
 
 def getSubSets(s):
 
-    # this currently does not return a unique list or subsets
-
     # largest subset
-
     max = len(s)
     size = 2 # size starts at 2 because we do not need to loop over 1 element subsets
 
@@ -59,7 +77,7 @@ def getSubSets(s):
 
     return retVal
 
-S = [1,5,9,8,7]
-k = 5
-ans = getSubSets(S)
-print len(ans)
+S = [1,7,2,4]
+k = 3
+print nonDivisibleSubset(k,S)
+
