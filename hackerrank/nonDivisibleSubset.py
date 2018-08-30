@@ -38,22 +38,22 @@ def getSubSets(s):
     while size < max:
 
         for r in [x for x in retVal if len(x) == size - 1 ]:
-            print 'Looking at '
-            print r
+            #print 'Looking at '
+            #print r
             # ie get two element arrays when we are creating 3 element arrays
             for i in xrange(len(s)):
-                print 'Element ' + str(s[i])
+                #print 'Element ' + str(s[i])
                 if s[i] not in r:
                     f = r
-                    print 'Adding ' + str(s[i]) + ' to '
-                    print r,f
-                    print retVal
+                    #print 'Adding ' + str(s[i]) + ' to '
+                    #print r,f
+                    #print retVal
 
-                    print retVal
+                    #print retVal
                     newElement = f | set([s[i]])
                     if newElement not in retVal:
                         retVal.append( newElement )
-                    print retVal
+                    #print retVal
 
         size += 1
 
@@ -61,4 +61,5 @@ def getSubSets(s):
 
 S = [1,5,9,8,7]
 k = 5
-print getSubSets(S)
+ans = getSubSets(S)
+print len(ans)
