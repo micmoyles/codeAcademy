@@ -46,12 +46,16 @@ def getSubSets(s):
                 if s[i] not in r:
                     f = r
                     print 'Adding ' + str(s[i]) + ' to '
-                    print r
-                    f.add(s[i])
-                    retVal.append( f )
+                    print r,f
                     print retVal
 
-        size = max
+                    print retVal
+                    newElement = f | set([s[i]])
+                    if newElement not in retVal:
+                        retVal.append( newElement )
+                    print retVal
+
+        size += 1
 
     return retVal
 
