@@ -1,9 +1,12 @@
 #!/usr/bin/python
 
 def nonDivisibleSubset(k, S):
+
     retVal = []
+    print 'There will be ' + str(2**len(S)) + ' subsets to iterate'
     # getall subsets
     subSets = getSubSets(S)
+    print 'passed getSubsets'
     assert len(subSets) == 2**len(S) - 2, 'Unexpected number of subsets returned'
 
     # for each subset, add all combinations of two elements
@@ -54,8 +57,8 @@ def getSubSets(s):
     # repeat
 
     while size < max:
-
-        for r in [x for x in retVal if len(x) == size - 1 ]:
+        R = [x for x in retVal if len(x) == size - 1 ]
+        for r in R:
             # ie get two element arrays when we are creating 3 element arrays
             for i in xrange(len(s)):
                 #print 'Element ' + str(s[i])
@@ -71,7 +74,10 @@ def getSubSets(s):
 
     return retVal
 
-S = [1,7,2,4]
-k = 3
+S = [278, 576, 496, 727, 410, 124, 338, 149, 209, 702, 282, 718, 771, 575, 436]
+#S = [278, 576, 496, 727, 410, 124, 338, 149,209]
+
+#S = [1,7,2,4]
+k = 7
 print nonDivisibleSubset(k,S)
 
