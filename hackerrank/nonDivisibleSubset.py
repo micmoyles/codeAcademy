@@ -8,18 +8,17 @@ def nonDivisibleSubset(k, S):
 
     # for each subset, add all combinations of two elements
     # if any two are evenly divisble by k then that subset fails
-    print subSets
+
     for subSet in subSets:
         if len(subSet) == 1:
-            print 'Removing'
-            print subSet
             subSets.remove(subSet)
         else:
-            print subSet
-            print '--------------'
             if checkPermutations(k,subSet):
                 retVal.append(subSet)
-    return retVal
+
+    return max(map( len, retVal ))
+
+
 
 
 def checkPermutations(k, S):
@@ -28,12 +27,13 @@ def checkPermutations(k, S):
     :param S: array
     :return: True if no two elements sum with % k == 0
     '''
-    check = True
     S = list(S)
+
     for i in xrange(len(S)):
         for j in xrange(len(S)):
-            if j == i: continue
-            print str(S[i]) + ' + ' + str(S[j])
+
+            if j == i:
+                continue
             if (S[i] + S[j]) % k == 0:
                 return False
 
@@ -56,22 +56,16 @@ def getSubSets(s):
     while size < max:
 
         for r in [x for x in retVal if len(x) == size - 1 ]:
-            #print 'Looking at '
-            #print r
             # ie get two element arrays when we are creating 3 element arrays
             for i in xrange(len(s)):
                 #print 'Element ' + str(s[i])
                 if s[i] not in r:
-                    f = r
-                    #print 'Adding ' + str(s[i]) + ' to '
-                    #print r,f
-                    #print retVal
 
-                    #print retVal
+                    f = r
+
                     newElement = f | set([s[i]])
                     if newElement not in retVal:
                         retVal.append( newElement )
-                    #print retVal
 
         size += 1
 
