@@ -5,6 +5,9 @@ def nonDivisibleSubset(k, S):
     retVal = []
     print 'There will be ' + str(2**len(S)) + ' subsets to iterate'
     # getall subsets
+
+    # TODO - figure out more efficient approach
+    #
     subSets = getSubSets(S)
     print 'passed getSubsets'
     assert len(subSets) == 2**len(S) - 2, 'Unexpected number of subsets returned'
