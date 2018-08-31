@@ -15,6 +15,8 @@ def nonDivisibleSubset(k, S):
     # and then return subsets of size (len(S) - 1), check for the two numbers
     # if present - reduce size of subset
 
+
+
     subSets = getSubSets(S)
     print 'passed getSubsets'
     assert len(subSets) == 2**len(S) - 2, 'Unexpected number of subsets returned'
@@ -85,19 +87,18 @@ def getSubSets(s, exactSize = None):
     return retVal
 
 def getBadCombos(S,k):
+
     # get all two number combinations that sum with % k == 0
-    badMods = []
     combosRemain = True
     combos = combinations(S,2)
     while combosRemain:
         try:
             c = next(combos)
             if sum(c) % k == 0:
-                badMods.append(c)
+                yield c
         except StopIteration:
-            print 'Hit end of iterator'
+            print('Hit end of iterator')
             combosRemain = False
-    return badMods
 
 S = [278, 576, 496, 727, 410, 124, 338, 149, 209, 702, 282, 718, 771, 575, 436]
 #S = [278, 576, 496, 727, 410, 124, 338, 149,209]
