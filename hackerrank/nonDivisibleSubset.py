@@ -1,13 +1,20 @@
 #!/usr/bin/python
 
+from itertools import combinations
+
 def nonDivisibleSubset(k, S):
 
     retVal = []
     print 'There will be ' + str(2**len(S)) + ' subsets to iterate'
+
     # getall subsets
 
     # TODO - figure out more efficient approach
-    #
+    # generating all subsets first is probably not necessary
+    # could attempt to find all pairs of numbers that sum % k == 0
+    # and then return subsets of size (len(S) - 1), check for the two numbers
+    # if present - reduce size of subset
+
     subSets = getSubSets(S)
     print 'passed getSubsets'
     assert len(subSets) == 2**len(S) - 2, 'Unexpected number of subsets returned'
@@ -45,7 +52,7 @@ def checkPermutations(k, S):
 
     return True
 
-def getSubSets(s):
+def getSubSets(s, exactSize = None):
 
     # largest subset
     max = len(s)
@@ -77,10 +84,24 @@ def getSubSets(s):
 
     return retVal
 
+def getBadCombos(S,k):
+    # get all two number combinations that sum with % k == 0
+    badMods = []
+    combosRemain = True
+    combos = combinations(S,2)
+    while combosRemain:
+        try:
+            c = next(combos)
+            if sum(c) % k == 0:
+                badMods.append(c)
+        except StopIteration:
+            print 'Hit end of iterator'
+            combosRemain = False
+    return badMods
+
 S = [278, 576, 496, 727, 410, 124, 338, 149, 209, 702, 282, 718, 771, 575, 436]
 #S = [278, 576, 496, 727, 410, 124, 338, 149,209]
 
-#S = [1,7,2,4]
-k = 7
-print nonDivisibleSubset(k,S)
+S = [1,7,2,4]
+k = 3
 
