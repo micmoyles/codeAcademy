@@ -21,6 +21,9 @@ The second line contains space-separated integers describing , the unique values
 
 Constraints
 
+    1 <= n <= 10**5
+    1 <= k <= 100
+    1 <= S[i] <= 10**9
     All of the given numbers are distinct.
 
 Output Format
@@ -141,6 +144,8 @@ S = [278, 576, 496, 727, 410, 124, 338, 149, 209, 702, 282, 718, 771, 575, 436]
 
 #S = [1,7,2,4]
 k = 17
+S = [19,10,12,10,24,25,22]
+k = 4
 ans = nonDivisibleSubset(k,S)
 print ans
 
