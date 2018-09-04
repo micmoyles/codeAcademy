@@ -32,7 +32,7 @@ from itertools import combinations
 
 def nonDivisibleSubset(k, S):
 
-    retVal = []
+    delta = 1
 
     print 'There will be ' + str(2**len(S)) + ' subsets to iterate'
 
@@ -42,14 +42,16 @@ def nonDivisibleSubset(k, S):
     # and then return subsets of size (len(S) - 1), check for the two numbers
     # if present - reduce size of subset
 
-
-
-    for subset in combinations(S, len(S) - 1):
-        validSubset = True
-        for (p1,p2) in getBadCombos(S,k):
-            print((p1,p2))
-            if set((p1,p2)).issubset(set(subset)):
-                continue
+    pairs = getBadCombos(S,k)
+    print(pairs)
+    while delta < len(S):
+        print('Operating with delta = ' + str(delta))
+        for subset in combinations(S, len(S) - delta):
+            res = [x for x in pairs if x.issubset(subset)]
+            if not res:
+                print('Subset ' + str(subset) + ' does not contain any two numbers with a sum divisble by ' + str(k))
+                return len(subset)
+        delta += 1
 
     return 0
 
@@ -116,7 +118,7 @@ def getBadCombos(S,k):
         try:
             c = next(combos)
             if sum(c) % k == 0:
-                retVal.append(c)
+                retVal.append(set(c))
         except StopIteration:
             #print('Hit end of iterator')
             combosRemain = False
@@ -125,7 +127,8 @@ def getBadCombos(S,k):
 S = [278, 576, 496, 727, 410, 124, 338, 149, 209, 702, 282, 718, 771, 575, 436]
 #S = [278, 576, 496, 727, 410, 124, 338, 149,209]
 
-S = [1,7,2,4]
-k = 3
-nonDivisibleSubset(k,S)
+#S = [1,7,2,4]
+k = 17
+ans = nonDivisibleSubset(k,S)
+print ans
 
