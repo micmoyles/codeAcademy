@@ -31,10 +31,23 @@ Output Format
 Print the size of the largest possible subset ().
 '''
 
+import sys
 from itertools import combinations
 
 def nonDivisibleSubset(k, S):
 
+    '''
+    Check constraints
+    '''
+    if len(S) >= 10 ** 5:
+        print('Length too long.')
+        sys.exit(1)
+    if k >= 100 or k < 1:
+        print('Invalid value for k.')
+        sys.exit(1)
+    if list(filter( lambda s: s >= 10 ** 9,S)):
+        print('An element of S is too large')
+        sys.exit(1)
     delta = 1
 
     print 'There would be ' + str(2**len(S)) + ' subsets to iterate'
