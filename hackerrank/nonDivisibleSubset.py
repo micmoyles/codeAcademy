@@ -36,8 +36,6 @@ def nonDivisibleSubset(k, S):
 
     print 'There will be ' + str(2**len(S)) + ' subsets to iterate'
 
-    # getall subsets
-
     # TODO - figure out more efficient approach
     # generating all subsets first is probably not necessary
     # could attempt to find all pairs of numbers that sum % k == 0
@@ -52,25 +50,6 @@ def nonDivisibleSubset(k, S):
             print((p1,p2))
             if set((p1,p2)).issubset(set(subset)):
                 continue
-
-
-
-
-
-
-    #subSets = getSubSets(S)
-    #print 'passed getSubsets'
-    #assert len(subSets) == 2**len(S) - 2, 'Unexpected number of subsets returned'
-
-    # for each subset, add all combinations of two elements
-    # if any two are evenly divisble by k then that subset fails
-
-    #for subSet in subSets:
-    #    if len(subSet) == 1:
-    #        subSets.remove(subSet)
-    #    else:
-    #        if checkPermutations(k,subSet):
-    #            retVal.append(subSet)
 
     return 0
 
