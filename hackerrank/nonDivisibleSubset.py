@@ -1,10 +1,39 @@
 #!/usr/bin/python
 
+'''
+Given a set of distinct integers, print the size of a maximal subset of where the sum of any numbers in is not evenly divisible by .
+
+For example, the array and . One of the arrays that can be created is . Another is . After testing all permutations, the maximum length solution array has elements.
+
+Function Description
+
+Complete the nonDivisibleSubset function in the editor below. It should return an integer representing the length of the longest subset of meeting the criteria.
+
+nonDivisibleSubset has the following parameter(s):
+
+    S: an array of integers
+    k: an integer
+
+Input Format
+
+The first line contains space-separated integers, and , the number of values in and the non factor.
+The second line contains space-separated integers describing , the unique values of the set.
+
+Constraints
+
+    All of the given numbers are distinct.
+
+Output Format
+
+Print the size of the largest possible subset ().
+'''
+
 from itertools import combinations
 
 def nonDivisibleSubset(k, S):
 
     retVal = []
+
     print 'There will be ' + str(2**len(S)) + ' subsets to iterate'
 
     # getall subsets
@@ -17,21 +46,33 @@ def nonDivisibleSubset(k, S):
 
 
 
-    subSets = getSubSets(S)
-    print 'passed getSubsets'
-    assert len(subSets) == 2**len(S) - 2, 'Unexpected number of subsets returned'
+    for subset in combinations(S, len(S) - 1):
+        validSubset = True
+        for (p1,p2) in getBadCombos(S,k):
+            print((p1,p2))
+            if set((p1,p2)).issubset(set(subset)):
+                continue
+
+
+
+
+
+
+    #subSets = getSubSets(S)
+    #print 'passed getSubsets'
+    #assert len(subSets) == 2**len(S) - 2, 'Unexpected number of subsets returned'
 
     # for each subset, add all combinations of two elements
     # if any two are evenly divisble by k then that subset fails
 
-    for subSet in subSets:
-        if len(subSet) == 1:
-            subSets.remove(subSet)
-        else:
-            if checkPermutations(k,subSet):
-                retVal.append(subSet)
+    #for subSet in subSets:
+    #    if len(subSet) == 1:
+    #        subSets.remove(subSet)
+    #    else:
+    #        if checkPermutations(k,subSet):
+    #            retVal.append(subSet)
 
-    return max(map( len, retVal ))
+    return 0
 
 
 
@@ -89,20 +130,23 @@ def getSubSets(s, exactSize = None):
 def getBadCombos(S,k):
 
     # get all two number combinations that sum with % k == 0
+    retVal =[]
     combosRemain = True
     combos = combinations(S,2)
     while combosRemain:
         try:
             c = next(combos)
             if sum(c) % k == 0:
-                yield c
+                retVal.append(c)
         except StopIteration:
-            print('Hit end of iterator')
+            #print('Hit end of iterator')
             combosRemain = False
+    return retVal
 
 S = [278, 576, 496, 727, 410, 124, 338, 149, 209, 702, 282, 718, 771, 575, 436]
 #S = [278, 576, 496, 727, 410, 124, 338, 149,209]
 
 S = [1,7,2,4]
 k = 3
+nonDivisibleSubset(k,S)
 
