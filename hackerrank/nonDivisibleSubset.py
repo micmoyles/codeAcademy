@@ -34,27 +34,53 @@ def nonDivisibleSubset(k, S):
 
     delta = 1
 
-    print 'There will be ' + str(2**len(S)) + ' subsets to iterate'
+    print 'There would be ' + str(2**len(S)) + ' subsets to iterate'
 
-    # TODO - figure out more efficient approach
-    # generating all subsets first is probably not necessary
-    # could attempt to find all pairs of numbers that sum % k == 0
-    # and then return subsets of size (len(S) - 1), check for the two numbers
-    # if present - reduce size of subset
+    '''
+    The approach is to:
+    1) Find all combinations that we do not want in our subset
+    2) Use a generator to call subsets starting with the largest (len(S) - 1)
+    3) If a subset matches our condition then exit and return the length of the subset
+    4) If not, call another subset
+    5) When the generator ends, we decrease the size of the subset and create a new generator
+    '''
 
     pairs = getBadCombos(S,k)
+
     print(pairs)
+
     while delta < len(S):
-        print('Operating with delta = ' + str(delta))
+        print('Operating with subset size max - ' + str(delta))
         for subset in combinations(S, len(S) - delta):
             res = [x for x in pairs if x.issubset(subset)]
             if not res:
                 print('Subset ' + str(subset) + ' does not contain any two numbers with a sum divisble by ' + str(k))
                 return len(subset)
+
+        '''
+        if we reach this point then no subsets matching our conditions were found so we reduce the size of the subsets
+        we are testing and recall the generator
+        '''
+
         delta += 1
 
     return 0
 
+def getBadCombos(S,k):
+
+    # get all two number combinations that sum with % k == 0
+
+    retVal =[]
+    combosRemain = True
+    combos = combinations(S,2)
+    while combosRemain:
+        try:
+            c = next(combos)
+            if sum(c) % k == 0:
+                retVal.append(set(c))
+        except StopIteration:
+            combosRemain = False
+    return retVal
 
 
 
@@ -108,21 +134,7 @@ def getSubSets(s, exactSize = None):
 
     return retVal
 
-def getBadCombos(S,k):
 
-    # get all two number combinations that sum with % k == 0
-    retVal =[]
-    combosRemain = True
-    combos = combinations(S,2)
-    while combosRemain:
-        try:
-            c = next(combos)
-            if sum(c) % k == 0:
-                retVal.append(set(c))
-        except StopIteration:
-            #print('Hit end of iterator')
-            combosRemain = False
-    return retVal
 
 S = [278, 576, 496, 727, 410, 124, 338, 149, 209, 702, 282, 718, 771, 575, 436]
 #S = [278, 576, 496, 727, 410, 124, 338, 149,209]
