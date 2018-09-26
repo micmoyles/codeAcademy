@@ -48,7 +48,8 @@ def nonDivisibleSubset(k, S):
     if list(filter( lambda s: s >= 10 ** 9,S)):
         print('An element of S is too large')
         sys.exit(1)
-    delta = 1
+
+    delta = 0
 
     print 'There would be ' + str(2**len(S)) + ' subsets to iterate'
 
@@ -159,6 +160,8 @@ S = [278, 576, 496, 727, 410, 124, 338, 149, 209, 702, 282, 718, 771, 575, 436]
 k = 17
 S = [19,10,12,10,24,25,22]
 k = 4
+S = [2,7,12,17,22]
+k = 5
 ans = nonDivisibleSubset(k,S)
 print ans
 
