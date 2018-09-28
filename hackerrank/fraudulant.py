@@ -8,7 +8,6 @@ import math
 
 def getMedian(l):
     l = myBubbleSort(l)
-    print l
     # if length of l is even we take the average of the middle two numbers
     if len(l) % 2 == 0:
         middle1 = len(l) / 2
@@ -19,7 +18,22 @@ def getMedian(l):
         median = l[middle]
     return median
 
+def activityNotifications(expenditure, d):
+    '''
+    expenditure: an array of integers representing daily expenditures
+    d: an integer, the lookback days for median spending
+    '''
+    print expenditure
+    for l in xrange(d,len(expenditure)):
+        # in array [a b c d e f] we want to choose e and get the median of [a b c d]
+        curExp = expenditure[0:l]
+
+        today = expenditure[l]
+        print today, curExp, getMedian(curExp)
+        if today >= getMedian(curExp): print 'Alert Issued'
+
 p = [5,8,9,6,4,7,7,55,7,8]
-print getMedian(p)
+e = [2, 3, 4, 2, 3, 6, 8, 4, 5]
+activityNotifications(e,5)
 
 
