@@ -25,17 +25,21 @@ def insertInOrder(a,l):
     print 'Inserting ' + str(l) + ' into '+str(a)
     if l >= a[len(a)-1]:
         a.append(l)
+        print 'Leaving at 1'
         return a
     elif l <= a[0]:
         a.insert(0,l)
+        print 'Leaving at 2'
         return a
-
+    print 'Starring loops'
     for i in xrange(0,len(a)):
         if l == a[i]:
             a.insert(i,l)
+            print 'Leaving at 3'
             return a
         elif l > a[i] and l < a[i+1]:
             a.insert(i+1,l)
+            print 'Leaving at 4'
             return a
 
 def activityNotifications(expenditure, d):
@@ -74,6 +78,9 @@ def activityNotifications(expenditure, d):
 p = [5,8,9,6,4,7,7,55,7,8]
 e = [2, 3, 4, 2, 3, 6, 8, 4, 5]
 f = [10, 20 , 30 ,40, 50]
-activityNotifications(e,5)
+#activityNotifications(e,5)
+print insertInOrder(sorted(p),0)
+
+
 
 
