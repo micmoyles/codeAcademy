@@ -31,7 +31,7 @@ def insertInOrder(a,l):
         a.insert(0,l)
         print 'Leaving at 2'
         return a
-    print 'Starring loops'
+    print 'Starting loops'
     for i in xrange(0,len(a)):
         if l == a[i]:
             a.insert(i,l)
