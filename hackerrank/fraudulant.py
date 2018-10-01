@@ -21,7 +21,7 @@ def getMedian(l, needToSort = False):
 
     return median
 
-def insertInOrder(a,l, currentMedian = None):
+def insertInOrder(a,l):
     print 'Inserting ' + str(l) + ' into '+ str(a)
     if l >= a[len(a)-1]:
         a.append(l)
@@ -32,19 +32,20 @@ def insertInOrder(a,l, currentMedian = None):
         print 'Inserted at very front'
         return a
     print 'Starting loops'
+    middleIndex =  int(math.floor( len(a) / 2.0))
 
-    if currentMedian is None or l <= currentMedian:
+    if l < a[ middleIndex ]:
         startingIndex = 0
     else:
-        print 'Will work with second half'
-        startingIndex = int(math.floor( len(a) / 2.0 ))
+        print 'Will work with second half from index %d' %middleIndex
+        startingIndex = middleIndex
 
     print 'Starting Index: %d' % startingIndex
     for i in xrange(startingIndex,len(a)):
 
         if l <= a[i]:
             a.insert(i,l)
-            print 'Inserting %d into front element of %d array' % (l,startingIndex)
+            print 'Inserting %d into %d element of array' % (l,i)
             print str(a)
             return a
         elif l > a[i] and l < a[i+1]:
@@ -79,9 +80,10 @@ def activityNotifications(expenditure, d):
 
         #curExp.pop(0) #<- This is incorrect as it is removing the smallest element when it should be removing
         # the element from d days ago.
+        print 'Removing %d ' % expenditure[l-d]
         curExp.remove(expenditure[l-d])
         # insert next element into the already sorted list
-        curExp = insertInOrder(curExp,expenditure[l],median)
+        curExp = insertInOrder(curExp,expenditure[l])
         #print curExp
         l+=1
 
