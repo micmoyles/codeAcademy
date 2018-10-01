@@ -21,7 +21,7 @@ def getMedian(l, needToSort = False):
 
     return median
 
-def insertInOrder(a,l):
+def insertInOrder(a,l, currentMedian = None):
     print 'Inserting ' + str(l) + ' into '+str(a)
     if l >= a[len(a)-1]:
         a.append(l)
@@ -32,7 +32,14 @@ def insertInOrder(a,l):
         print 'Leaving at 2'
         return a
     print 'Starting loops'
-    for i in xrange(0,len(a)):
+
+    if currentMedian is None or l <= currentMedian:
+        startingIndex = 0
+    else:
+        startingIndex = int(math.floor( len(l) / 2.0 ))
+
+    for i in xrange(startingIndex,len(a)):
+
         if l == a[i]:
             a.insert(i,l)
             print 'Leaving at 3'

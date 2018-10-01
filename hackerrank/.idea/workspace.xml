@@ -23,10 +23,10 @@
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="1" />
-          <entry key="project.open.time.28" value="2" />
+          <entry key="project.open.time.28" value="3" />
           <entry key="project.open.time.41" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -44,16 +44,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="745" />
-          <entry key="py" value="6825" />
+          <entry key="py" value="7082" />
           <entry key="sh" value="1271" />
-          <entry key="txt" value="127" />
+          <entry key="txt" value="205" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Bash" value="1271" />
-          <entry key="PLAIN_TEXT" value="127" />
-          <entry key="Python" value="7570" />
+          <entry key="PLAIN_TEXT" value="205" />
+          <entry key="Python" value="7827" />
         </counts>
       </usages-collector>
     </session>
@@ -86,8 +86,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fraudulant.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+            <state relative-caret-position="184">
+              <caret line="40" column="19" lean-forward="true" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
               <folding>
                 <element signature="e#197#232#0" expanded="true" />
               </folding>
@@ -165,6 +165,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,7 +181,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -298,7 +298,21 @@
       <option name="project" value="LOCAL" />
       <updated>1538132753176</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="apply correct use of arguments for array insert method :(">
+      <created>1538145454553</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1538145454553</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add some prints">
+      <created>1538146295976</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1538146295976</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -342,7 +356,9 @@
     <MESSAGE value="bubble sort - make tidier to use for imports" />
     <MESSAGE value="get median" />
     <MESSAGE value="add activityMonitor" />
-    <option name="LAST_COMMIT_MESSAGE" value="add activityMonitor" />
+    <MESSAGE value="apply correct use of arguments for array insert method :(" />
+    <MESSAGE value="add some prints" />
+    <option name="LAST_COMMIT_MESSAGE" value="add some prints" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/yield.py" />
@@ -433,8 +449,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fraudulant.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+        <state relative-caret-position="184">
+          <caret line="40" column="19" lean-forward="true" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
           <folding>
             <element signature="e#197#232#0" expanded="true" />
           </folding>
