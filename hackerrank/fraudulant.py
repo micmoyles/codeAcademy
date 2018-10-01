@@ -5,6 +5,7 @@ https://www.hackerrank.com/challenges/fraudulent-activity-notifications/problem?
 '''
 from bubbleSort import myBubbleSort
 import math
+import bisect
 
 def getMedian(l, needToSort = False):
     if needToSort:
@@ -23,39 +24,39 @@ def getMedian(l, needToSort = False):
 
 def insertInOrder(a,l):
 
-    print 'Inserting ' + str(l) + ' into '+ str(a)
+    #print 'Inserting ' + str(l) + ' into '+ str(a)
     if l >= a[len(a)-1]:
         a.append(l)
-        print 'Inserted at very end'
+        #print 'Inserted at very end'
         return a
 
     elif l <= a[0]:
         a.insert(0,l)
-        print 'Inserted at very front'
+        #print 'Inserted at very front'
         return a
 
-    print 'Starting loops'
+    #print 'Starting loops'
     middleIndex =  int(math.floor( len(a) / 2.0))
 
     if l < a[ middleIndex ]:
         startingIndex = 0
     else:
-        print 'Will work with second half from index %d' % middleIndex
+        #print 'Will work with second half from index %d' % middleIndex
         startingIndex = middleIndex
 
-    print 'Starting Index: %d' % startingIndex
+    #print 'Starting Index: %d' % startingIndex
     for i in xrange(startingIndex,len(a)):
 
         if l <= a[i]:
             a.insert(i,l)
-            print 'Inserting %d into element %d of array' % (l,i)
-            print str(a)
+            #print 'Inserting %d into element %d of array' % (l,i)
+            #print str(a)
             return a
         elif l > a[i] and l < a[i+1]:
-            print 'Inserting %d between %d and %d' % (l,a[i],a[i+1])
+            #print 'Inserting %d between %d and %d' % (l,a[i],a[i+1])
             a.insert(i+1,l)
 
-            print str(a)
+            #print str(a)
             return a
 
 def activityNotifications(expenditure, d):
@@ -63,7 +64,7 @@ def activityNotifications(expenditure, d):
     expenditure: an array of integers representing daily expenditures
     d: an integer, the lookback days for median spending
     '''
-    print expenditure
+    #print expenditure
 
     alerts = 0
     l = d
@@ -73,27 +74,40 @@ def activityNotifications(expenditure, d):
     while l < len(expenditure):
 
         today = expenditure[l]
-        print 'Today: ' + str(today) + ' Median: ' + str(getMedian(curExp)) + ' curExp: ' + str(curExp)
+        #print 'Today: ' + str(today) + ' Median: ' + str(getMedian(curExp)) + ' curExp: ' + str(curExp)
         median = getMedian(curExp)
         if today >= 2 * median:
             alerts+=1
-            print 'Alert Issued'
-        else:
-            print 'No alert issued'
+            #print 'Alert Issued'
+        #else:
+            #print 'No alert issued'
 
         #curExp.pop(0) #<- This is incorrect as it is removing the smallest element when it should be removing
         # the element from d days ago.
-        print 'Removing %d ' % expenditure[l-d]
-        curExp.remove(expenditure[l-d])
+        #print 'Removing %d ' % expenditure[l-d]
+        #
+        #curExp.remove(expenditure[l-d])
+        indexToRemove = bisect.bisect_left(curExp,expenditure[l-d])
+        curExp.pop(indexToRemove)
         # insert next element into the already sorted list
-        curExp = insertInOrder(curExp,expenditure[l])
+        #curExp = insertInOrder(curExp,expenditure[l])
+        bisect.insort(curExp,expenditure[l])
         #print curExp
         l+=1
+    print 'Number of alerts = %d' % alerts
 
 p = [5,8,9,6,4,7,7,55,7,8,7,4,34,7,44,8,11,2,66,9,45,64,32,32,32]
 e = [2, 3, 4, 2, 3, 6, 8, 4, 5]
 f = [10, 20 , 30 ,40, 50]
-activityNotifications(p,10)
+
+fh = open('input01.txt')
+fd = fh.read().split('\n')
+data = map(int, fd[1].split())
+fh.close()
+print len(data)
+
+activityNotifications(data,10000)
+#activityNotifications(p,10)
 #print insertInOrder(sorted(p),12,7)
 
 
