@@ -36,8 +36,8 @@ def insertInOrder(a,l, currentMedian = None):
     if currentMedian is None or l <= currentMedian:
         startingIndex = 0
     else:
-        startingIndex = int(math.floor( len(l) / 2.0 ))
-
+        startingIndex = int(math.floor( len(a) / 2.0 ))
+    print 'Starting Index: %d' % startingIndex
     for i in xrange(startingIndex,len(a)):
 
         if l == a[i]:
@@ -68,7 +68,8 @@ def activityNotifications(expenditure, d):
 
         today = expenditure[l]
         print today, curExp, getMedian(curExp)
-        if today >= 2 * getMedian(curExp):
+        median = getMedian(curExp)
+        if today >= 2 * median:
             alerts+=1
             print 'Alert Issued'
 
@@ -78,15 +79,15 @@ def activityNotifications(expenditure, d):
         curExp.pop(0)
         #print curExp
         # insert next element into the already sorted list
-        curExp = insertInOrder(curExp,expenditure[l])
+        curExp = insertInOrder(curExp,expenditure[l],median)
         #print curExp
         l+=1
 
 p = [5,8,9,6,4,7,7,55,7,8]
 e = [2, 3, 4, 2, 3, 6, 8, 4, 5]
 f = [10, 20 , 30 ,40, 50]
-#activityNotifications(e,5)
-print insertInOrder(sorted(p),0)
+activityNotifications(e,5)
+#print insertInOrder(sorted(p),12,7)
 
 
 
