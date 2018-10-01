@@ -2,6 +2,9 @@
 
 '''
 https://www.hackerrank.com/challenges/fraudulent-activity-notifications/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=sorting
+profiling was the key in figuring out the timeouts
+ python -m cProfile  fraudulant.py
+
 '''
 from bubbleSort import myBubbleSort
 import math
