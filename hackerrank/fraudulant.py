@@ -22,31 +22,36 @@ def getMedian(l, needToSort = False):
     return median
 
 def insertInOrder(a,l, currentMedian = None):
-    print 'Inserting ' + str(l) + ' into '+str(a)
+    print 'Inserting ' + str(l) + ' into '+ str(a)
     if l >= a[len(a)-1]:
         a.append(l)
-        print 'Leaving at 1'
+        print 'Inserted at very end'
         return a
     elif l <= a[0]:
         a.insert(0,l)
-        print 'Leaving at 2'
+        print 'Inserted at very front'
         return a
     print 'Starting loops'
 
     if currentMedian is None or l <= currentMedian:
         startingIndex = 0
     else:
+        print 'Will work with second half'
         startingIndex = int(math.floor( len(a) / 2.0 ))
+
     print 'Starting Index: %d' % startingIndex
     for i in xrange(startingIndex,len(a)):
 
-        if l == a[i]:
+        if l <= a[i]:
             a.insert(i,l)
-            print 'Leaving at 3'
+            print 'Inserting %d into front element of %d array' % (l,startingIndex)
+            print str(a)
             return a
         elif l > a[i] and l < a[i+1]:
+            print 'Inserting %d between %d and %d' % (l,a[i],a[i+1])
             a.insert(i+1,l)
-            print 'Leaving at 4'
+
+            print str(a)
             return a
 
 def activityNotifications(expenditure, d):
@@ -62,9 +67,6 @@ def activityNotifications(expenditure, d):
     curExp = sorted(curExp)
 
     while l < len(expenditure):
-    #for l in xrange(d,len(expenditure)):
-        # in array [a b c d e f] we want to choose e and get the median of [a b c d]
-        #curExp = expenditure[l-d:l]
 
         today = expenditure[l]
         print today, curExp, getMedian(curExp)
@@ -72,21 +74,21 @@ def activityNotifications(expenditure, d):
         if today >= 2 * median:
             alerts+=1
             print 'Alert Issued'
+        else:
+            print 'No alert issued'
 
-        # remove first element
-        #print 'Butchering'
-        #print curExp
-        curExp.pop(0)
-        #print curExp
+        curExp.pop(0) #<- This is incorrect as it is removing the smallest element when it should be removing
+        # the element from d days ago.
+
         # insert next element into the already sorted list
         curExp = insertInOrder(curExp,expenditure[l],median)
         #print curExp
         l+=1
 
-p = [5,8,9,6,4,7,7,55,7,8]
+p = [5,8,9,6,4,7,7,55,7,8,7,4,34,7,44,8,11,2,66,9,45,64,32,32,32]
 e = [2, 3, 4, 2, 3, 6, 8, 4, 5]
 f = [10, 20 , 30 ,40, 50]
-activityNotifications(e,5)
+activityNotifications(p,10)
 #print insertInOrder(sorted(p),12,7)
 
 
