@@ -43,16 +43,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="745" />
-          <entry key="py" value="7668" />
+          <entry key="py" value="7696" />
           <entry key="sh" value="1271" />
-          <entry key="txt" value="405" />
+          <entry key="txt" value="445" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Bash" value="1271" />
-          <entry key="PLAIN_TEXT" value="405" />
-          <entry key="Python" value="8413" />
+          <entry key="PLAIN_TEXT" value="445" />
+          <entry key="Python" value="8441" />
         </counts>
       </usages-collector>
     </session>
@@ -85,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fraudulant.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="72" column="8" lean-forward="true" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="8" />
+            <state relative-caret-position="290">
+              <caret line="79" column="9" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
               <folding>
                 <element signature="e#197#232#0" expanded="true" />
               </folding>
@@ -325,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538388507033</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add comment identiying potential problem">
+      <created>1538391171696</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1538391171696</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -373,7 +380,8 @@
     <MESSAGE value="add some prints" />
     <MESSAGE value="compare entry to median. This will allow us ignore the first half of the array when inserting a new element in order" />
     <MESSAGE value="neaten some stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="neaten some stuff" />
+    <MESSAGE value="add comment identiying potential problem" />
+    <option name="LAST_COMMIT_MESSAGE" value="add comment identiying potential problem" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/yield.py" />
@@ -464,8 +472,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fraudulant.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="72" column="8" lean-forward="true" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="8" />
+        <state relative-caret-position="290">
+          <caret line="79" column="9" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
           <folding>
             <element signature="e#197#232#0" expanded="true" />
           </folding>

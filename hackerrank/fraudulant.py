@@ -77,9 +77,9 @@ def activityNotifications(expenditure, d):
         else:
             print 'No alert issued'
 
-        curExp.pop(0) #<- This is incorrect as it is removing the smallest element when it should be removing
+        #curExp.pop(0) #<- This is incorrect as it is removing the smallest element when it should be removing
         # the element from d days ago.
-
+        curExp.remove(expenditure[l-d])
         # insert next element into the already sorted list
         curExp = insertInOrder(curExp,expenditure[l],median)
         #print curExp
