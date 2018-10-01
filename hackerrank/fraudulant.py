@@ -78,14 +78,12 @@ def activityNotifications(expenditure, d):
         median = getMedian(curExp)
         if today >= 2 * median:
             alerts+=1
-            #print 'Alert Issued'
-        #else:
-            #print 'No alert issued'
 
-        #curExp.pop(0) #<- This is incorrect as it is removing the smallest element when it should be removing
-        # the element from d days ago.
-        #print 'Removing %d ' % expenditure[l-d]
-        #
+        '''
+        When it comes to inserting and removing from the list, the simple remove() method and method insertInOrder() 
+        from above are too expensive and together count for about 98% of the run time.
+        Using the appropriate methods from the bisect module reduces the run time from 100s to 2s for size 200000
+        '''
         #curExp.remove(expenditure[l-d])
         indexToRemove = bisect.bisect_left(curExp,expenditure[l-d])
         curExp.pop(indexToRemove)

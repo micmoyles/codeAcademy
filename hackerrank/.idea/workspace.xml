@@ -45,16 +45,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="745" />
-          <entry key="py" value="8382" />
+          <entry key="py" value="8768" />
           <entry key="sh" value="1271" />
-          <entry key="txt" value="595" />
+          <entry key="txt" value="654" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Bash" value="1271" />
-          <entry key="PLAIN_TEXT" value="595" />
-          <entry key="Python" value="9127" />
+          <entry key="PLAIN_TEXT" value="654" />
+          <entry key="Python" value="9513" />
         </counts>
       </usages-collector>
     </session>
@@ -87,8 +87,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fraudulant.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="87" column="10" selection-start-line="87" selection-start-column="10" selection-end-line="87" selection-end-column="10" />
+            <state relative-caret-position="225">
+              <caret line="84" column="113" selection-start-line="84" selection-start-column="113" selection-end-line="84" selection-end-column="113" />
               <folding>
                 <element signature="e#197#232#0" expanded="true" />
               </folding>
@@ -348,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538392876847</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="use the bisect module to handle the insert and remove">
+      <created>1538424268329</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1538424268330</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -399,7 +406,8 @@
     <MESSAGE value="add comment identiying potential problem" />
     <MESSAGE value="remove element, do not pop first element because the array has been sorted" />
     <MESSAGE value="forget about median comparison, compare against middle element for speed" />
-    <option name="LAST_COMMIT_MESSAGE" value="forget about median comparison, compare against middle element for speed" />
+    <MESSAGE value="use the bisect module to handle the insert and remove" />
+    <option name="LAST_COMMIT_MESSAGE" value="use the bisect module to handle the insert and remove" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/yield.py" />
@@ -490,8 +498,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fraudulant.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="87" column="10" selection-start-line="87" selection-start-column="10" selection-end-line="87" selection-end-column="10" />
+        <state relative-caret-position="225">
+          <caret line="84" column="113" selection-start-line="84" selection-start-column="113" selection-end-line="84" selection-end-column="113" />
           <folding>
             <element signature="e#197#232#0" expanded="true" />
           </folding>
