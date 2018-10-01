@@ -23,40 +23,37 @@ def getMedian(l, needToSort = False):
     return median
 
 def insertInOrder(a,l):
+    '''
 
-    #print 'Inserting ' + str(l) + ' into '+ str(a)
+    :param a: sorted array
+    :param l: element to insert
+    :return: sorted array a including l
+    This is too slow for the purposes of the hackerrank challenge. See comments below.
+    '''
+
     if l >= a[len(a)-1]:
         a.append(l)
-        #print 'Inserted at very end'
         return a
 
     elif l <= a[0]:
         a.insert(0,l)
-        #print 'Inserted at very front'
         return a
 
-    #print 'Starting loops'
     middleIndex =  int(math.floor( len(a) / 2.0))
 
     if l < a[ middleIndex ]:
         startingIndex = 0
     else:
-        #print 'Will work with second half from index %d' % middleIndex
         startingIndex = middleIndex
 
-    #print 'Starting Index: %d' % startingIndex
     for i in xrange(startingIndex,len(a)):
 
         if l <= a[i]:
             a.insert(i,l)
-            #print 'Inserting %d into element %d of array' % (l,i)
-            #print str(a)
             return a
-        elif l > a[i] and l < a[i+1]:
-            #print 'Inserting %d between %d and %d' % (l,a[i],a[i+1])
-            a.insert(i+1,l)
 
-            #print str(a)
+        elif l > a[i] and l < a[i+1]:
+            a.insert(i+1,l)
             return a
 
 def activityNotifications(expenditure, d):
@@ -64,7 +61,6 @@ def activityNotifications(expenditure, d):
     expenditure: an array of integers representing daily expenditures
     d: an integer, the lookback days for median spending
     '''
-    #print expenditure
 
     alerts = 0
     l = d
@@ -74,7 +70,6 @@ def activityNotifications(expenditure, d):
     while l < len(expenditure):
 
         today = expenditure[l]
-        #print 'Today: ' + str(today) + ' Median: ' + str(getMedian(curExp)) + ' curExp: ' + str(curExp)
         median = getMedian(curExp)
         if today >= 2 * median:
             alerts+=1
@@ -87,12 +82,12 @@ def activityNotifications(expenditure, d):
         #curExp.remove(expenditure[l-d])
         indexToRemove = bisect.bisect_left(curExp,expenditure[l-d])
         curExp.pop(indexToRemove)
+
         # insert next element into the already sorted list
         #curExp = insertInOrder(curExp,expenditure[l])
         bisect.insort(curExp,expenditure[l])
-        #print curExp
         l+=1
-    print 'Number of alerts = %d' % alerts
+    return alerts
 
 p = [5,8,9,6,4,7,7,55,7,8,7,4,34,7,44,8,11,2,66,9,45,64,32,32,32]
 e = [2, 3, 4, 2, 3, 6, 8, 4, 5]
