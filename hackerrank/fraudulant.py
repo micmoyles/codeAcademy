@@ -22,22 +22,25 @@ def getMedian(l, needToSort = False):
     return median
 
 def insertInOrder(a,l):
+
     print 'Inserting ' + str(l) + ' into '+ str(a)
     if l >= a[len(a)-1]:
         a.append(l)
         print 'Inserted at very end'
         return a
+
     elif l <= a[0]:
         a.insert(0,l)
         print 'Inserted at very front'
         return a
+
     print 'Starting loops'
     middleIndex =  int(math.floor( len(a) / 2.0))
 
     if l < a[ middleIndex ]:
         startingIndex = 0
     else:
-        print 'Will work with second half from index %d' %middleIndex
+        print 'Will work with second half from index %d' % middleIndex
         startingIndex = middleIndex
 
     print 'Starting Index: %d' % startingIndex
@@ -45,7 +48,7 @@ def insertInOrder(a,l):
 
         if l <= a[i]:
             a.insert(i,l)
-            print 'Inserting %d into %d element of array' % (l,i)
+            print 'Inserting %d into element %d of array' % (l,i)
             print str(a)
             return a
         elif l > a[i] and l < a[i+1]:
@@ -70,7 +73,7 @@ def activityNotifications(expenditure, d):
     while l < len(expenditure):
 
         today = expenditure[l]
-        print today, curExp, getMedian(curExp)
+        print 'Today: ' + str(today) + ' Median: ' + str(getMedian(curExp)) + ' curExp: ' + str(curExp)
         median = getMedian(curExp)
         if today >= 2 * median:
             alerts+=1
