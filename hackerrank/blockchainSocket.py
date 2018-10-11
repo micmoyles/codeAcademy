@@ -11,7 +11,7 @@ def hello():
 
     try:
         #name = input("What's your name? ")
-        first_message = json.dumps({"op":"ping"})
+        first_message = json.dumps({"op":"unconfirmed_sub"})
         yield from websocket.send(first_message)
         print("> {}".format(first_message))
 
@@ -22,3 +22,4 @@ def hello():
         yield from websocket.close()
 
 asyncio.get_event_loop().run_until_complete(hello())
+
