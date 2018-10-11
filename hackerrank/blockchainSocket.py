@@ -11,7 +11,6 @@ def hello():
 
     try:
         #name = input("What's your name? ")
-        first_message = b'{"op":"ping"}'
         first_message = json.dumps({"op":"ping"})
         yield from websocket.send(first_message)
         print("> {}".format(first_message))
