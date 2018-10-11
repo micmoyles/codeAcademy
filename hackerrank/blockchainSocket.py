@@ -1,19 +1,25 @@
-#!/usr/bin/python
-import socket
+#!/usr/bin/python3
 
-server = 'ws.blockchain.info'
-port = 80 # websocket
-server_address = (server, port)
-# Create a TCP/IP socket
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+import asyncio
+import websockets
+import json
 
-print  'starting up on %s port %s' % server_address
-sock.connect(server_address)
-print 'Connected'
+@asyncio.coroutine
+def hello():
+    websocket = yield from websockets.connect(
+        'wss://ws.blockchain.info/inv')
 
-subscribe_message = b'{"op":"ping"}'
-sock.sendall(subscribe_message)
-data = sock.recv(1024)
-print data
-sock.close()
-print 'Exiting sucessfully'
+    try:
+        #name = input("What's your name? ")
+        first_message = b'{"op":"ping"}'
+        first_message = json.dumps({"op":"ping"})
+        yield from websocket.send(first_message)
+        print("> {}".format(first_message))
+
+        greeting = yield from websocket.recv()
+        print("< {}".format(greeting))
+
+    finally:
+        yield from websocket.close()
+
+asyncio.get_event_loop().run_until_complete(hello())
